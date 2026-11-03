@@ -1,0 +1,32 @@
+{
+  "name": "FC Anyang Fan App",
+  "short_name": "FC안양 팬앱",
+  "description": "FC 안양 팬을 위한 경기·티켓·참여 정보 앱",
+  "lang": "ko-KR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1f0149",
+  "theme_color": "#1f0149",
+  "icons": [
+    {
+      "src": "./assets/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
