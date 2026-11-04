@@ -39,7 +39,7 @@
 
 /* Startup failsafe: reveal the app after one second even if JavaScript is unavailable */
 @keyframes splashAutoExit{to{opacity:0;visibility:hidden;pointer-events:none}}
-.splash-screen{animation:splashAutoExit 0s linear 1s forwards}
+    .splash-screen{animation:splashAutoExit 0s linear 1.5s forwards}
 
 
 .my-avatar{position:relative;overflow:hidden;padding:0;background:#311354;border:1px solid #8b69a8}.my-avatar img{position:absolute;left:-50%;top:-42%;width:200%;height:200%;max-width:none;object-fit:cover}.bottom-nav .nav-icon{display:block;width:24px;height:24px;overflow:visible}
@@ -310,7 +310,7 @@
       </div>
       <span class="splash-version">FC ANYANG FAN APP · V1</span>
     </section>
-    <script>window.setTimeout(function(){var splash=document.getElementById('splashScreen');if(splash)splash.remove();},1000);</script>
+    <script>window.setTimeout(function(){var splash=document.getElementById('splashScreen');if(splash)splash.remove();},1500);</script>
     <header class="topbar"><a class="brand" href="#home" aria-label="FC Anyang 홈"><img class="brand-crest" src="https://tv.kleague.com/image/410x410/cf1d6330-63fc-45a5-aea9-d224dc3d6275.png?v=20250225103628" alt="FC 안양 엠블럼"><span>FC <b>ANYANG</b><small>THIS IS OUR CITY THIS IS OUR CLUB</small></span></a><button class="icon-button" aria-label="알림" id="noticeButton">♧<i></i></button></header>
     <main id="home">
       <section class="home-events" aria-label="주요 이벤트">
@@ -482,7 +482,7 @@
   </div>
   <script>
 const splashScreen = document.getElementById('splashScreen');
-window.setTimeout(() => { if (splashScreen) splashScreen.remove(); }, 1000);
+window.setTimeout(() => { if (splashScreen) splashScreen.remove(); }, 1500);
 const messages = {
   ticket: '티켓 메뉴에서 11월 28일 홈 경기 예매 과정을 목업으로 확인할 수 있어요.',
   shop: 'MD SHOP 화면은 다음 버전에서 연결할 예정입니다.',
