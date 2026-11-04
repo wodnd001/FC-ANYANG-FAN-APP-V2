@@ -275,9 +275,12 @@
 #myScreen .anniversary-mascots{position:absolute;z-index:-1;left:0;bottom:-10px;width:132px;height:122px;display:flex;align-items:flex-end;justify-content:center;opacity:1}
 #myScreen .anniversary-mascots img{width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 3px 5px #16082470)}
 #myScreen .anniversary-copy{position:relative;z-index:1;width:100%;font-weight:800;text-align:center;text-shadow:0 2px 8px #1f0149}
+#myScreen .my-anniversary.login-prompt{min-height:132px;padding:12px 12px 12px 142px;justify-content:flex-end;font-size:12px;line-height:1.55}
+#myScreen .my-anniversary.login-prompt .anniversary-mascots{z-index:0;left:0;bottom:-7px;width:145px;height:132px}
+#myScreen .my-anniversary.login-prompt .anniversary-copy{width:100%;text-align:center}
 #myScreen .anniversary-days{display:inline-block;margin:0 2px;color:#f1cf72;font-size:1.55em;font-weight:1000;line-height:1;text-shadow:0 0 13px #e4bc5870}
 .bottom-nav .my-nav-button{gap:3px}.bottom-nav .my-nav-button .my-person-icon{width:25px;height:25px;color:currentColor}.bottom-nav .my-nav-button>span{font-size:9px;line-height:1}
-@media(max-width:370px){#myScreen .my-anniversary{min-height:112px;padding-inline:12px;font-size:12px}#myScreen .anniversary-mascots{width:116px;height:112px}}
+@media(max-width:370px){#myScreen .my-anniversary{min-height:112px;padding-inline:12px;font-size:12px}#myScreen .anniversary-mascots{width:116px;height:112px}#myScreen .my-anniversary.login-prompt{min-height:126px;padding:10px 10px 10px 118px;font-size:11px}#myScreen .my-anniversary.login-prompt .anniversary-mascots{width:122px;height:120px}}
 </style>
 <style>
 .cheer-home-banner{position:relative;width:100%;min-height:76px;margin:4px 0 0;padding:10px 14px;display:flex;align-items:center;gap:12px;overflow:hidden;border:1px solid #8b6b3e;border-radius:15px;background:linear-gradient(105deg,#321253,#241039 72%,#4b2a6b);color:#fff;text-align:left;box-shadow:0 7px 18px #25103b25}
@@ -1360,9 +1363,11 @@ function renderMyProfile() {
   if (!user) {
     greeting.textContent = '로그인이 필요해요';
     subline.textContent = '로그인·회원가입하고 안양 팬 혜택을 만나보세요';
+    anniversary.classList.add('login-prompt');
     anniversary.innerHTML = '<span class="anniversary-mascots"><img src="assets/bati-nari-cutout.png" alt="바티와 나리"></span><span class="anniversary-copy">로그인하고 바티·나리와 함께해요</span>';
     return;
   }
+  anniversary.classList.remove('login-prompt');
   greeting.textContent = '안녕하세요, 바티 님';
   subline.textContent = user.email || user.phone || 'FC ANYANG · PURPLE MEMBER';
   const joined = new Date(user.joinedAt || Date.now());
