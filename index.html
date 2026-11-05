@@ -300,6 +300,10 @@
 /* Clear the fixed bottom navigation from the final home cards and actions. */
 .app-shell{padding-bottom:calc(154px + env(safe-area-inset-bottom))!important}.app-shell main{scroll-padding-bottom:calc(100px + env(safe-area-inset-bottom))}
 </style>
+<style>
+.bottom-nav{transition:transform .22s ease;will-change:transform}
+.bottom-nav.is-hidden{transform:translate(-50%,150%)}
+</style>
 </head>
 <body>
   <div class="app-shell">
@@ -1801,6 +1805,24 @@ document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&!cheerMod
 <script src="js/match-center.js?v=20261103-4"></script>
 <script src="js/home-tools.js?v=20261103-2"></script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(error=>console.warn('앱 오프라인 준비 등록 실패',error)));}</script>
+<script>
+(()=>{
+  const nav=document.querySelector('.bottom-nav');
+  if(!nav)return;
+  let lastY=window.scrollY;
+  let scheduled=false;
+  const update=()=>{
+    const y=Math.max(0,window.scrollY||document.documentElement.scrollTop||0);
+    const atBottom=y+window.innerHeight>=document.documentElement.scrollHeight-16;
+    if(y<=8||atBottom){nav.classList.remove('is-hidden');}
+    else if(Math.abs(y-lastY)>10){nav.classList.toggle('is-hidden',y>lastY);}
+    lastY=y;scheduled=false;
+  };
+  window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update);}},{passive:true});
+  window.addEventListener('resize',update,{passive:true});
+  update();
+})();
+</script>
 </body>
 </html>
 
