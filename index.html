@@ -271,16 +271,16 @@
 /* MY profile refresh: Bati photo, mascot anniversary banner, and person tab icon */
 #myScreen .my-avatar{overflow:hidden;background:#32145a;border:2px solid #cda55f;box-shadow:0 0 0 3px #4f2a73}
 #myScreen .my-avatar img{position:static;width:100%;height:100%;max-width:100%;object-fit:cover;object-position:center 27%;border-radius:50%}
-#myScreen .my-anniversary{position:relative;isolation:isolate;min-height:112px;margin:10px 0 16px;padding:17px 18px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid #e4ca8f;border-radius:16px;background:linear-gradient(110deg,#3d1a65 0%,#271044 68%,#4a2770 100%);color:#fff;text-align:center;font-size:13px;line-height:1.65;box-shadow:0 8px 24px #11042170}
-#myScreen .anniversary-mascots{position:absolute;z-index:-1;left:0;bottom:-10px;width:132px;height:122px;display:flex;align-items:flex-end;justify-content:center;opacity:1}
+#myScreen .my-anniversary{position:relative;isolation:isolate;min-height:132px;margin:10px 0 16px;padding:17px 18px 17px 150px;overflow:hidden;display:flex;align-items:center;justify-content:flex-end;border:1px solid #e4ca8f;border-radius:16px;background:linear-gradient(110deg,#3d1a65 0%,#271044 68%,#4a2770 100%);color:#fff;text-align:center;font-size:13px;line-height:1.65;box-shadow:0 8px 24px #11042170}
+#myScreen .anniversary-mascots{position:absolute;z-index:0;left:0;bottom:-10px;width:132px;height:122px;display:flex;align-items:flex-end;justify-content:center;opacity:1}
 #myScreen .anniversary-mascots img{width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 3px 5px #16082470)}
 #myScreen .anniversary-copy{position:relative;z-index:1;width:100%;font-weight:800;text-align:center;text-shadow:0 2px 8px #1f0149}
-#myScreen .my-anniversary.login-prompt{min-height:132px;padding:12px 12px 12px 142px;justify-content:flex-end;font-size:12px;line-height:1.55}
+#myScreen .my-anniversary.login-prompt{min-height:132px;padding:12px 12px 12px 150px;justify-content:flex-end;font-size:12px;line-height:1.55}
 #myScreen .my-anniversary.login-prompt .anniversary-mascots{z-index:0;left:0;bottom:-7px;width:145px;height:132px}
 #myScreen .my-anniversary.login-prompt .anniversary-copy{width:100%;text-align:center}
 #myScreen .anniversary-days{display:inline-block;margin:0 2px;color:#f1cf72;font-size:1.55em;font-weight:1000;line-height:1;text-shadow:0 0 13px #e4bc5870}
 .bottom-nav .my-nav-button{gap:3px}.bottom-nav .my-nav-button .my-person-icon{width:25px;height:25px;color:currentColor}.bottom-nav .my-nav-button>span{font-size:9px;line-height:1}
-@media(max-width:370px){#myScreen .my-anniversary{min-height:112px;padding-inline:12px;font-size:12px}#myScreen .anniversary-mascots{width:116px;height:112px}#myScreen .my-anniversary.login-prompt{min-height:126px;padding:10px 10px 10px 118px;font-size:11px}#myScreen .my-anniversary.login-prompt .anniversary-mascots{width:122px;height:120px}}
+@media(max-width:370px){#myScreen .my-anniversary{min-height:124px;padding:10px 10px 10px 126px;font-size:11px}#myScreen .anniversary-mascots{width:116px;height:112px}#myScreen .my-anniversary.login-prompt{min-height:126px;padding:10px 10px 10px 126px;font-size:11px}#myScreen .my-anniversary.login-prompt .anniversary-mascots{width:122px;height:120px}}
 </style>
 <style>
 .cheer-home-banner{position:relative;width:100%;min-height:76px;margin:4px 0 0;padding:10px 14px;display:flex;align-items:center;gap:12px;overflow:hidden;border:1px solid #8b6b3e;border-radius:15px;background:linear-gradient(105deg,#321253,#241039 72%,#4b2a6b);color:#fff;text-align:left;box-shadow:0 7px 18px #25103b25}
@@ -470,6 +470,7 @@
       <section class="my-detail-view" data-my-view="tickets" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>티켓 예매 내역</h2><span></span></div><p class="my-detail-empty" id="myBookingsEmpty">이 기기에서 저장한 예매 내역이 없습니다.</p><div class="my-bookings-list" id="myBookingsList"></div></section>
       <section class="my-detail-view" data-my-view="membership" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>모바일 멤버십 등록</h2><span></span></div><div class="membership-register-panel"><span class="eyebrow">FC ANYANG MEMBERSHIP</span><h3>시즌권 멤버십 등록</h3><p>보유한 시즌권 종류를 선택한 뒤 카드 뒷면 바코드를 스캔하거나 바코드 아래 13자리 번호를 입력해 주세요.</p><fieldset class="membership-type-grid"><legend>멤버십 등급 선택</legend><label><input type="radio" name="membershipType" value="sukabati"><span><b>SUKABATI</b><small>지정좌석제 연간회원권</small></span></label><label><input type="radio" name="membershipType" value="violet"><span><b>VIOLET</b><small>카드형 연간회원권</small></span></label><label><input type="radio" name="membershipType" value="felico"><span><b>FELICO</b><small>예매권북(티켓북)</small></span></label><label><input type="radio" name="membershipType" value="paradizo"><span><b>PARADIZO</b><small>15매형 티켓북</small></span></label><label><input type="radio" name="membershipType" value="civitano"><span><b>CIVITANO</b><small>10매형 티켓북</small></span></label><label><input type="radio" name="membershipType" value="violet5"><span><b>VIOLET PASS</b><small>5매형 티켓북</small></span></label></fieldset><button type="button" class="membership-scan-button" id="startMembershipScan">▦ 시즌권 후면 바코드 스캔</button><div class="membership-scanner" id="membershipScanner" hidden><video id="membershipScanVideo" playsinline muted aria-label="시즌권 바코드 스캔"></video><p id="membershipScanStatus">카드를 화면 안에 맞춰주세요.</p><button type="button" id="stopMembershipScan" class="my-stop-scan">스캔 닫기</button></div><form id="membershipForm" class="membership-code-form"><label id="membershipSeatField" class="membership-seat-field" hidden>지정 좌석 정보 (선택)<input id="membershipSeatInput" name="seatInfo" maxlength="40" placeholder="예: W석 R15구역 12열 3번"></label><label for="membershipBarcodeInput">바코드 하단 13자리 번호</label><input id="membershipBarcodeInput" name="barcode" inputmode="numeric" autocomplete="off" maxlength="13" pattern="[0-9]{13}" placeholder="숫자 13자리를 입력하세요" required><small id="membershipCodeStatus">등록 정보는 이 기기에 저장되는 시연용입니다.</small><button type="submit" class="my-checkin-primary">멤버십 등록하기</button></form><div class="membership-registered" id="membershipRegistered" hidden></div></div></section>
       <section class="my-detail-view" data-my-view="survey" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>설문 및 이벤트</h2><span></span></div><p class="my-detail-empty">진행 중인 설문 및 이벤트가 없습니다.</p></section>
+      <section class="my-detail-view" data-my-view="preferences" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>팬 프로필 설정</h2><span></span></div><div class="profile-preferences"><p>나에게 맞는 안양 소식을 준비할게요.</p><form id="fanPreferencesForm"><label>성별<select id="fanGender" required><option value="">선택해 주세요</option><option value="female">여성</option><option value="male">남성</option><option value="other">선택 안 함</option></select></label><label>나이대<select id="fanAgeBand" required><option value="">선택해 주세요</option><option>10대</option><option>20대</option><option>30대</option><option>40대</option><option>50대 이상</option><option>선택 안 함</option></select></label><label>좋아하는 선수<select id="fanFavoritePlayer" required><option value="">선택해 주세요</option><option>마테우스</option><option>아일톤</option><option>엘쿠라노</option><option>유키치</option><option>김정현</option><option>한가람</option><option>이창용</option><option>권경원</option><option>최건주</option><option>블레이즈</option><option>아직 정하지 않았어요</option></select></label><small id="fanPreferenceReward">모든 항목을 처음 저장하면 100P를 드려요. 포인트는 계정당 1회 지급됩니다.</small><button type="submit" class="my-checkin-primary" id="saveFanPreferences">설정 저장하기 · 100P 받기</button></form></div></section>
     </section>
     <section class="cheer-modal" id="cheerModal" role="dialog" aria-modal="true" aria-labelledby="cheerModalTitle" hidden><button class="cheer-modal-backdrop" type="button" data-close-cheer aria-label="응원 모음 닫기"></button><div class="cheer-modal-card"><header class="cheer-modal-head"><div><small>FC ANYANG · SUPPORTERS</small><h2 id="cheerModalTitle">응원 모음</h2></div><button class="cheer-modal-close" type="button" data-close-cheer aria-label="닫기">×</button></header><nav class="cheer-tabs" role="tablist" aria-label="응원 종류"><button type="button" class="active" role="tab" aria-selected="true" aria-controls="cheerPanelChants" data-cheer-tab="chants">구호</button><button type="button" role="tab" aria-selected="false" aria-controls="cheerPanelSongs" data-cheer-tab="songs">응원가</button><button type="button" role="tab" aria-selected="false" aria-controls="cheerPanelPlayer" data-cheer-tab="player">선수콜</button></nav><div class="cheer-panel" id="cheerPanelChants" role="tabpanel" data-cheer-panel="chants"><p class="cheer-panel-intro">경기장에서 함께 외치는 응원 구호</p><article class="cheer-item"><span>01</span><div><small>다 함께</small><b>수카바티, 안양!</b><p>수카바티! 안양! 수카바티! 안양!</p></div><i>응원 구호</i></article><article class="cheer-item"><span>02</span><div><small>다 함께</small><b>우리의 믿음은 굳건하다</b><p>우리의 믿음은 굳건하다, 안양!</p></div><i>응원 구호</i></article><article class="cheer-item"><span>03</span><div><small>다 함께</small><b>끝까지 안양</b><p>끝까지 안양, 승리하라!</p></div><i>응원 구호</i></article></div><div class="cheer-panel" id="cheerPanelSongs" role="tabpanel" data-cheer-panel="songs" hidden><p class="cheer-panel-intro">안양의 승리를 함께 노래해요</p><article class="cheer-item"><span>♪</span><div><small>FC ANYANG</small><b>안양의 노래</b><p>응원가 모음 · 경기장에서 함께 불러요</p></div><button class="cheer-audio-button" type="button" disabled>음원 준비 중</button></article><article class="cheer-item"><span>♪</span><div><small>VIOLET PRIDE</small><b>수카바티 안양</b><p>응원가 모음 · 경기장에서 함께 불러요</p></div><button class="cheer-audio-button" type="button" disabled>음원 준비 중</button></article></div><div class="cheer-panel" id="cheerPanelPlayer" role="tabpanel" data-cheer-panel="player" hidden><p class="cheer-panel-intro">선수 이름을 넣어 함께 외쳐보세요</p><article class="cheer-item"><span>01</span><div><small>득점 직후</small><b>[선수 이름] 콜</b><p>[선수 이름]! 안양의 자랑! 오오오!</p></div><i>선수 응원</i></article><article class="cheer-item"><span>02</span><div><small>좋은 플레이에</small><b>안양의 에이스</b><p>[선수 이름]! 더 크게 뛰어라!</p></div><i>선수 응원</i></article><p class="cheer-demo-note">선수별 공식 응원 문구와 음원은 준비되면 업데이트할게요.</p></div></div></section>
     <section class="auth-screen" id="authScreen" hidden aria-labelledby="authTitle">
@@ -551,13 +552,16 @@ function getActivityScoreBreakdown() {
   const chatMessages = readChatMessages().length;
   const predictions = countStorageItems('fc-anyang-prediction-');
   const attendanceDays = countStorageItems('fc-anyang-attendance-');
+  const user = readAuthUser();
+  const profileRewarded = user && localStorage.getItem(`fc-anyang-profile-reward-v1:${user.email || user.phone || 'demo'}`) === 'true';
   return [
     { label: `멤버십 등급${level ? ` · ${level.name}` : ''}`, points: level?.points || 0 },
     { label: `직관 인증 · ${visits}회`, points: visits * 100 },
     { label: `FANZONE 활동 · ${fanzonePosts}건`, points: fanzonePosts * 20 },
     { label: `MATCH CHAT · ${chatMessages}건`, points: chatMessages * 5 },
     { label: `승부예측 참여 · ${predictions}회`, points: predictions * 10 },
-    { label: `출석체크 · ${attendanceDays}일`, points: attendanceDays * 50 }
+    { label: `출석체크 · ${attendanceDays}일`, points: attendanceDays * 50 },
+    { label: '팬 프로필 첫 설정', points: profileRewarded ? 100 : 0 }
   ];
 }
 function getTotalActivityScore() {
@@ -1379,6 +1383,14 @@ function renderMyProfile() {
   joined.setHours(0,0,0,0); today.setHours(0,0,0,0);
   const days = Math.max(1, Math.floor((today - joined) / 86400000) + 1);
   anniversary.innerHTML = `<span class="anniversary-mascots"><img src="assets/bati-nari-cutout.png" alt="바티와 나리"></span><span class="anniversary-copy">바티·나리와 함께한 지 <strong class="anniversary-days">${days}</strong>일째입니다</span>`;
+  const prefs = user.preferences || {};
+  document.getElementById('fanGender').value = prefs.gender || '';
+  document.getElementById('fanAgeBand').value = prefs.ageBand || '';
+  document.getElementById('fanFavoritePlayer').value = prefs.favoritePlayer || '';
+  const rewardKey = `fc-anyang-profile-reward-v1:${user.email || user.phone || 'demo'}`;
+  const rewarded = localStorage.getItem(rewardKey) === 'true';
+  document.getElementById('fanPreferenceReward').textContent = rewarded ? '프로필 설정 보상 100P를 이미 받으셨어요.' : '모든 항목을 처음 저장하면 100P를 드려요. 포인트는 계정당 1회 지급됩니다.';
+  document.getElementById('saveFanPreferences').textContent = rewarded ? '설정 저장하기' : '설정 저장하기 · 100P 받기';
 }
 function showAuthScreen(mode = 'login') {
   const user = readAuthUser();
@@ -1402,7 +1414,33 @@ function completeDemoLogin(account, notice = '로그인했어요.') {
   renderMembershipCard();
   showMessage(notice);
 }
-document.getElementById('myProfileButton').addEventListener('click', () => showAuthScreen());
+document.getElementById('myProfileButton').addEventListener('click', () => {
+  if (!readAuthUser()) { showAuthScreen(); return; }
+  renderMyProfile();
+  openMyView('preferences');
+});
+document.getElementById('fanPreferencesForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!event.currentTarget.reportValidity()) return;
+  const user = readAuthUser();
+  if (!user) { showAuthScreen(); return; }
+  const rewardKey = `fc-anyang-profile-reward-v1:${user.email || user.phone || 'demo'}`;
+  const firstSave = !user.preferences && localStorage.getItem(rewardKey) !== 'true';
+  user.preferences = {
+    gender: document.getElementById('fanGender').value,
+    ageBand: document.getElementById('fanAgeBand').value,
+    favoritePlayer: document.getElementById('fanFavoritePlayer').value
+  };
+  localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
+  if (firstSave) {
+    const balance = Number(localStorage.getItem(POINTS_KEY) || 0) + 100;
+    localStorage.setItem(POINTS_KEY, String(balance));
+    localStorage.setItem(rewardKey, 'true');
+  }
+  renderMyProfile();
+  renderMyRecords();
+  showMessage(firstSave ? '프로필을 저장했어요. 첫 설정 보상 100P를 적립했습니다!' : '프로필 설정을 저장했어요.');
+});
 document.getElementById('authBack').addEventListener('click', () => { document.getElementById('authScreen').hidden = true; });
 document.getElementById('authClose').addEventListener('click', () => { document.getElementById('authScreen').hidden = true; });
 document.querySelectorAll('[data-auth-mode]').forEach((button) => button.addEventListener('click', () => setAuthMode(button.dataset.authMode)));
@@ -1569,22 +1607,11 @@ function getMyLocalDateKey(date = new Date()) {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 }
 function stopMyCamera() {
-  if (myScanFrame) cancelAnimationFrame(myScanFrame);
-  myScanFrame = 0;
-  if (myCameraStream) myCameraStream.getTracks().forEach((track) => track.stop());
-  myCameraStream = null;
-  document.getElementById('myScanVideo').srcObject = null;
+  window.FcCameraScanner?.stop();
   document.getElementById('myScanner').hidden = true;
 }
-let membershipCameraStream = null;
-let membershipScanFrame = 0;
 function stopMembershipCamera() {
-  if (membershipScanFrame) cancelAnimationFrame(membershipScanFrame);
-  membershipScanFrame = 0;
-  if (membershipCameraStream) membershipCameraStream.getTracks().forEach((track) => track.stop());
-  membershipCameraStream = null;
-  const video = document.getElementById('membershipScanVideo');
-  if (video) video.srcObject = null;
+  window.FcCameraScanner?.stop();
   const scanner = document.getElementById('membershipScanner');
   if (scanner) scanner.hidden = true;
 }
@@ -1592,41 +1619,24 @@ async function startMembershipCamera() {
   const scanner = document.getElementById('membershipScanner');
   const status = document.getElementById('membershipScanStatus');
   scanner.hidden = false;
-  if (!('BarcodeDetector' in window) || !navigator.mediaDevices?.getUserMedia) {
-    status.textContent = '카메라 바코드 스캔을 지원하지 않는 브라우저입니다. 아래 칸에 13자리 번호를 입력해주세요.';
-    document.getElementById('membershipBarcodeInput').focus();
-    return;
-  }
   try {
-    const detector = new BarcodeDetector({ formats: ['code_128', 'code_39', 'ean_13', 'ean_8', 'qr_code'] });
-    membershipCameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } }, audio: false });
     const video = document.getElementById('membershipScanVideo');
-    video.srcObject = membershipCameraStream;
-    await video.play();
     status.textContent = '시즌권 후면 바코드를 화면에 맞춰주세요.';
-    const scan = async () => {
-      if (!membershipCameraStream || video.readyState < 2) { membershipScanFrame = requestAnimationFrame(scan); return; }
-      try {
-        const codes = await detector.detect(video);
-        if (codes.length && codes[0].rawValue) {
-          const digits = codes[0].rawValue.replace(/\D/g, '');
-          stopMembershipCamera();
-          if (digits.length !== 13) {
-            document.getElementById('membershipScanStatus').textContent = '인식한 값이 13자리가 아닙니다. 바코드 아래 번호를 직접 입력해주세요.';
-            document.getElementById('membershipScanner').hidden = false;
-            return;
-          }
-          document.getElementById('membershipBarcodeInput').value = digits;
-          document.getElementById('membershipCodeStatus').textContent = '바코드를 읽었습니다. 멤버십 종류를 확인하고 등록해주세요.';
-          showMessage('시즌권 바코드를 읽었습니다.');
-          return;
-        }
-      } catch { status.textContent = '바코드를 찾는 중입니다. 카드와 카메라 거리를 조정해주세요.'; }
-      membershipScanFrame = requestAnimationFrame(scan);
-    };
-    membershipScanFrame = requestAnimationFrame(scan);
-  } catch {
-    status.textContent = '카메라를 열 수 없습니다. 카메라 권한을 확인하거나 13자리 번호를 직접 입력해주세요.';
+    await window.FcCameraScanner.start(video, ['code_128','code_39','ean_13','ean_8','qr_code'], rawValue => {
+      const digits = rawValue.replace(/\D/g, '');
+      stopMembershipCamera();
+      if (digits.length !== 13) {
+        status.textContent = '인식한 값이 13자리가 아닙니다. 바코드 아래 번호를 직접 입력해주세요.';
+        scanner.hidden = false;
+        return;
+      }
+      document.getElementById('membershipBarcodeInput').value = digits;
+      document.getElementById('membershipCodeStatus').textContent = '바코드를 읽었습니다. 멤버십 종류를 확인하고 등록해주세요.';
+      showMessage('시즌권 바코드를 읽었습니다.');
+    }, message => { status.textContent = message; });
+  } catch (error) {
+    status.textContent = `${error.message || '카메라를 열 수 없습니다.'} 카메라 권한을 확인하거나 13자리 번호를 직접 입력해주세요.`;
+    document.getElementById('membershipBarcodeInput').focus();
   }
 }
 document.getElementById('startMembershipScan').addEventListener('click', startMembershipCamera);
@@ -1636,39 +1646,19 @@ async function startMyCamera() {
   const status = document.getElementById('myScanStatus');
   scanner.hidden = false;
   document.getElementById('myResultEntry').hidden = true;
-  if (!('BarcodeDetector' in window) || !navigator.mediaDevices?.getUserMedia) {
-    status.textContent = '이 브라우저에서 카메라 QR 스캔을 지원하지 않아요. 최신 Chrome 또는 Edge에서 다시 시도해주세요.';
-    return;
-  }
   try {
-    const detector = new BarcodeDetector({ formats: ['qr_code', 'code_128', 'code_39', 'ean_13', 'ean_8'] });
-    myCameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } }, audio: false });
     const video = document.getElementById('myScanVideo');
-    video.srcObject = myCameraStream;
-    await video.play();
     status.textContent = '회원 바코드 또는 실물 티켓 QR을 화면 안에 맞춰주세요.';
-    const scan = async () => {
-      if (!myCameraStream || video.readyState < 2) { myScanFrame = requestAnimationFrame(scan); return; }
-      try {
-        const codes = await detector.detect(video);
-        if (codes.length && codes[0].rawValue) {
-          pendingMyScanCode = codes[0].rawValue;
-          stopMyCamera();
-          const visits = readMyVisits();
-          if (visits.some((visit) => visit.date === getMyLocalDateKey())) {
-            showMessage('오늘 직관 기록이 이미 있어요.');
-            return;
-          }
-          document.getElementById('myScannedCodeLabel').textContent = '코드 스캔 완료 · 오늘 경기 결과 선택';
-          document.getElementById('myResultEntry').hidden = false;
-          return;
-        }
-      } catch { status.textContent = '코드를 찾는 중이에요. 카메라를 티켓에 가까이 맞춰주세요.'; }
-      myScanFrame = requestAnimationFrame(scan);
-    };
-    myScanFrame = requestAnimationFrame(scan);
-  } catch {
-    status.textContent = '카메라를 열 수 없어요. 브라우저의 카메라 권한과 HTTPS 연결을 확인해주세요.';
+    await window.FcCameraScanner.start(video, ['qr_code','code_128','code_39','ean_13','ean_8'], rawValue => {
+      pendingMyScanCode = rawValue;
+      stopMyCamera();
+      const visits = readMyVisits();
+      if (visits.some((visit) => visit.date === getMyLocalDateKey())) { showMessage('오늘 직관 기록이 이미 있어요.'); return; }
+      document.getElementById('myScannedCodeLabel').textContent = '코드 스캔 완료 · 오늘 경기 결과 선택';
+      document.getElementById('myResultEntry').hidden = false;
+    }, message => { status.textContent = message; });
+  } catch (error) {
+    status.textContent = `${error.message || '카메라를 열 수 없어요.'} 브라우저의 카메라 권한을 확인해주세요.`;
   }
 }
 document.getElementById('startMyScan').addEventListener('click', startMyCamera);
@@ -1802,8 +1792,9 @@ document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&!cheerMod
 </script>
 <link rel="stylesheet" href="css/match-center.css?v=20261103-4">
 <link rel="stylesheet" href="css/home-tools.css?v=20261103-2">
-<script src="js/match-center.js?v=20261103-4"></script>
-<script src="js/home-tools.js?v=20261103-2"></script>
+<script src="js/camera-scanner.js?v=20261108-2"></script>
+<script src="js/match-center.js?v=20261108-1"></script>
+<script src="js/home-tools.js?v=20261108-1"></script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(error=>console.warn('앱 오프라인 준비 등록 실패',error)));}</script>
 <script>
 (()=>{
