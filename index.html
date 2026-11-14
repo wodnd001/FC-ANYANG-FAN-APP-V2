@@ -304,6 +304,29 @@
 .bottom-nav{transition:transform .22s ease;will-change:transform}
 .bottom-nav.is-hidden{transform:translate(-50%,150%)}
 </style>
+<style>
+.account-profile{margin:14px 0 18px;border-top:1px solid #573c72;border-bottom:1px solid #573c72}
+.account-profile-row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;align-items:center;padding:12px 10px;border-bottom:1px solid #49335f}
+.account-profile-row:last-child{border-bottom:0}
+.account-profile-row>strong{color:#f0e9f5;font-size:11px}
+.account-profile-row>span{color:#d0c2dc;font-size:12px;overflow-wrap:anywhere}
+.account-profile-row input,.account-profile-row select{width:100%;min-width:0;min-height:42px;padding:0 10px;border:1px solid #59456b;border-radius:9px;background:#241b2e;color:#fff;font:500 12px 'Noto Sans KR',sans-serif}
+.account-section-title{margin:22px 0 9px;color:#e3c276;font-size:15px}
+.account-consent-list{display:grid;gap:10px}
+.account-consent-card{min-width:0;margin:0;padding:14px;border:1px solid #573c72;border-radius:13px;background:#2b1645}
+.account-consent-card header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:11px}
+.account-consent-card header strong{font-size:13px}.account-consent-card header small{color:#c6b4d6;font-size:9px}
+.account-consent-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.account-consent-options label{position:relative;display:flex;align-items:center;justify-content:center;gap:6px;min-height:40px;border:1px solid #59456b;border-radius:10px;background:#241b2e;color:#d8cce2;font-size:11px;font-weight:700;cursor:pointer}
+.account-consent-options input{width:16px;height:16px;accent-color:#cda55f}
+.account-consent-options label:has(input:checked){border-color:#cda55f;background:#cda55f;color:#241039}
+.account-consent-note{margin:12px 2px;color:#c5b6d3;font-size:9px;line-height:1.65}
+.account-save-actions{display:grid;grid-template-columns:1fr 1.2fr;gap:8px;margin:18px 0 8px}
+.account-save-actions button{min-height:48px;border:1px solid #755b91;border-radius:11px;background:#2b1645;color:#fff;font:800 12px 'Noto Sans KR',sans-serif}
+.account-save-actions button[type=submit]{border-color:#cda55f;background:#cda55f;color:#241039}
+.account-demo-note{margin:10px 2px;color:#a997b9;font-size:9px;line-height:1.6}
+@media(max-width:370px){.account-profile-row{grid-template-columns:86px minmax(0,1fr);gap:8px;padding:10px 7px}.account-profile-row>strong{font-size:10px}.account-profile-row input,.account-profile-row select{font-size:11px}}
+</style>
 </head>
 <body>
   <div class="app-shell">
@@ -471,6 +494,32 @@
       <section class="my-detail-view" data-my-view="membership" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>모바일 멤버십 등록</h2><span></span></div><div class="membership-register-panel"><span class="eyebrow">FC ANYANG MEMBERSHIP</span><h3>시즌권 멤버십 등록</h3><p>보유한 시즌권 종류를 선택한 뒤 카드 뒷면 바코드를 스캔하거나 바코드 아래 13자리 번호를 입력해 주세요.</p><fieldset class="membership-type-grid"><legend>멤버십 등급 선택</legend><label><input type="radio" name="membershipType" value="sukabati"><span><b>SUKABATI</b><small>지정좌석제 연간회원권</small></span></label><label><input type="radio" name="membershipType" value="violet"><span><b>VIOLET</b><small>카드형 연간회원권</small></span></label><label><input type="radio" name="membershipType" value="felico"><span><b>FELICO</b><small>예매권북(티켓북)</small></span></label><label><input type="radio" name="membershipType" value="paradizo"><span><b>PARADIZO</b><small>15매형 티켓북</small></span></label><label><input type="radio" name="membershipType" value="civitano"><span><b>CIVITANO</b><small>10매형 티켓북</small></span></label><label><input type="radio" name="membershipType" value="violet5"><span><b>VIOLET PASS</b><small>5매형 티켓북</small></span></label></fieldset><button type="button" class="membership-scan-button" id="startMembershipScan">▦ 시즌권 후면 바코드 스캔</button><div class="membership-scanner" id="membershipScanner" hidden><video id="membershipScanVideo" playsinline muted aria-label="시즌권 바코드 스캔"></video><p id="membershipScanStatus">카드를 화면 안에 맞춰주세요.</p><button type="button" id="stopMembershipScan" class="my-stop-scan">스캔 닫기</button></div><form id="membershipForm" class="membership-code-form"><label id="membershipSeatField" class="membership-seat-field" hidden>지정 좌석 정보 (선택)<input id="membershipSeatInput" name="seatInfo" maxlength="40" placeholder="예: W석 R15구역 12열 3번"></label><label for="membershipBarcodeInput">바코드 하단 13자리 번호</label><input id="membershipBarcodeInput" name="barcode" inputmode="numeric" autocomplete="off" maxlength="13" pattern="[0-9]{13}" placeholder="숫자 13자리를 입력하세요" required><small id="membershipCodeStatus">등록 정보는 이 기기에 저장되는 시연용입니다.</small><button type="submit" class="my-checkin-primary">멤버십 등록하기</button></form><div class="membership-registered" id="membershipRegistered" hidden></div></div></section>
       <section class="my-detail-view" data-my-view="survey" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>설문 및 이벤트</h2><span></span></div><p class="my-detail-empty">진행 중인 설문 및 이벤트가 없습니다.</p></section>
       <section class="my-detail-view" data-my-view="preferences" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>팬 프로필 설정</h2><span></span></div><div class="profile-preferences"><p>나에게 맞는 안양 소식을 준비할게요.</p><form id="fanPreferencesForm"><label>성별<select id="fanGender" required><option value="">선택해 주세요</option><option value="female">여성</option><option value="male">남성</option><option value="other">선택 안 함</option></select></label><label>나이대<select id="fanAgeBand" required><option value="">선택해 주세요</option><option>10대</option><option>20대</option><option>30대</option><option>40대</option><option>50대 이상</option><option>선택 안 함</option></select></label><label>좋아하는 선수<select id="fanFavoritePlayer" required><option value="">선택해 주세요</option><option>마테우스</option><option>아일톤</option><option>엘쿠라노</option><option>유키치</option><option>김정현</option><option>한가람</option><option>이창용</option><option>권경원</option><option>최건주</option><option>블레이즈</option><option>아직 정하지 않았어요</option></select></label><small id="fanPreferenceReward">모든 항목을 처음 저장하면 100P를 드려요. 포인트는 계정당 1회 지급됩니다.</small><button type="submit" class="my-checkin-primary" id="saveFanPreferences">설정 저장하기 · 100P 받기</button></form></div></section>
+      <section class="my-detail-view account-detail-view" data-my-view="account" hidden>
+        <div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>회원 정보</h2><span></span></div>
+        <form id="accountDetailsForm">
+          <h3 class="account-section-title">회원 정보</h3>
+          <div class="account-profile">
+            <div class="account-profile-row"><strong>회원등급</strong><span id="accountMemberLevel">일반회원</span></div>
+            <div class="account-profile-row"><strong>아이디</strong><span id="accountMemberId">—</span></div>
+            <label class="account-profile-row"><strong for="accountName">이름</strong><input id="accountName" name="name" autocomplete="name" maxlength="30" required></label>
+            <label class="account-profile-row"><strong for="accountGender">성별</strong><select id="accountGender" name="gender"><option value="">선택 안 함</option><option value="female">여성</option><option value="male">남성</option><option value="other">기타</option></select></label>
+            <div class="account-profile-row"><strong>본인인증</strong><span id="accountVerification">시연 계정 · 인증 연동 전</span></div>
+            <label class="account-profile-row"><strong for="accountBirthDate">생년월일</strong><input id="accountBirthDate" name="birthDate" type="date" autocomplete="bday"></label>
+            <label class="account-profile-row"><strong for="accountNickname">닉네임</strong><input id="accountNickname" name="nickname" autocomplete="nickname" maxlength="24" placeholder="닉네임을 입력하세요"></label>
+            <label class="account-profile-row"><strong for="accountPhone">휴대전화</strong><input id="accountPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="010-0000-0000"></label>
+            <label class="account-profile-row"><strong for="accountEmail">이메일</strong><input id="accountEmail" name="email" type="email" autocomplete="email" placeholder="email@example.com"></label>
+          </div>
+          <h3 class="account-section-title">마케팅 수신 동의</h3>
+          <p class="account-consent-note">FC 안양의 이벤트와 혜택 안내를 받을 방법을 선택해 주세요. 각 매체별 설정은 언제든 변경할 수 있습니다.</p>
+          <div class="account-consent-list">
+            <fieldset class="account-consent-card"><header><strong>앱 Notification</strong><small>앱 푸시 알림</small></header><div class="account-consent-options"><label><input type="radio" name="consent-app" value="agree"><span>수신동의</span></label><label><input type="radio" name="consent-app" value="decline"><span>수신거부</span></label></div></fieldset>
+            <fieldset class="account-consent-card"><header><strong>카카오톡 알림</strong><small>카카오 알림톡</small></header><div class="account-consent-options"><label><input type="radio" name="consent-kakao" value="agree"><span>수신동의</span></label><label><input type="radio" name="consent-kakao" value="decline"><span>수신거부</span></label></div></fieldset>
+            <fieldset class="account-consent-card"><header><strong>SMS</strong><small>문자 메시지</small></header><div class="account-consent-options"><label><input type="radio" name="consent-sms" value="agree"><span>수신동의</span></label><label><input type="radio" name="consent-sms" value="decline"><span>수신거부</span></label></div></fieldset>
+          </div>
+          <p class="account-demo-note">현재는 화면 시연 단계로, 입력한 정보와 수신 설정은 이 브라우저에만 저장됩니다. 실제 구단 계정·본인인증·알림 발송과는 연결되어 있지 않습니다.</p>
+          <div class="account-save-actions"><button type="button" data-my-back>돌아가기</button><button type="submit">정보 수정</button></div>
+        </form>
+      </section>
     </section>
     <section class="cheer-modal" id="cheerModal" role="dialog" aria-modal="true" aria-labelledby="cheerModalTitle" hidden><button class="cheer-modal-backdrop" type="button" data-close-cheer aria-label="응원 모음 닫기"></button><div class="cheer-modal-card"><header class="cheer-modal-head"><div><small>FC ANYANG · SUPPORTERS</small><h2 id="cheerModalTitle">응원 모음</h2></div><button class="cheer-modal-close" type="button" data-close-cheer aria-label="닫기">×</button></header><nav class="cheer-tabs" role="tablist" aria-label="응원 종류"><button type="button" class="active" role="tab" aria-selected="true" aria-controls="cheerPanelChants" data-cheer-tab="chants">구호</button><button type="button" role="tab" aria-selected="false" aria-controls="cheerPanelSongs" data-cheer-tab="songs">응원가</button><button type="button" role="tab" aria-selected="false" aria-controls="cheerPanelPlayer" data-cheer-tab="player">선수콜</button></nav><div class="cheer-panel" id="cheerPanelChants" role="tabpanel" data-cheer-panel="chants"><p class="cheer-panel-intro">경기장에서 함께 외치는 응원 구호</p><article class="cheer-item"><span>01</span><div><small>다 함께</small><b>수카바티, 안양!</b><p>수카바티! 안양! 수카바티! 안양!</p></div><i>응원 구호</i></article><article class="cheer-item"><span>02</span><div><small>다 함께</small><b>우리의 믿음은 굳건하다</b><p>우리의 믿음은 굳건하다, 안양!</p></div><i>응원 구호</i></article><article class="cheer-item"><span>03</span><div><small>다 함께</small><b>끝까지 안양</b><p>끝까지 안양, 승리하라!</p></div><i>응원 구호</i></article></div><div class="cheer-panel" id="cheerPanelSongs" role="tabpanel" data-cheer-panel="songs" hidden><p class="cheer-panel-intro">안양의 승리를 함께 노래해요</p><article class="cheer-item"><span>♪</span><div><small>FC ANYANG</small><b>안양의 노래</b><p>응원가 모음 · 경기장에서 함께 불러요</p></div><button class="cheer-audio-button" type="button" disabled>음원 준비 중</button></article><article class="cheer-item"><span>♪</span><div><small>VIOLET PRIDE</small><b>수카바티 안양</b><p>응원가 모음 · 경기장에서 함께 불러요</p></div><button class="cheer-audio-button" type="button" disabled>음원 준비 중</button></article></div><div class="cheer-panel" id="cheerPanelPlayer" role="tabpanel" data-cheer-panel="player" hidden><p class="cheer-panel-intro">선수 이름을 넣어 함께 외쳐보세요</p><article class="cheer-item"><span>01</span><div><small>득점 직후</small><b>[선수 이름] 콜</b><p>[선수 이름]! 안양의 자랑! 오오오!</p></div><i>선수 응원</i></article><article class="cheer-item"><span>02</span><div><small>좋은 플레이에</small><b>안양의 에이스</b><p>[선수 이름]! 더 크게 뛰어라!</p></div><i>선수 응원</i></article><p class="cheer-demo-note">선수별 공식 응원 문구와 음원은 준비되면 업데이트할게요.</p></div></div></section>
     <section class="auth-screen" id="authScreen" hidden aria-labelledby="authTitle">
@@ -1376,7 +1425,7 @@ function renderMyProfile() {
     return;
   }
   anniversary.classList.remove('login-prompt');
-  greeting.textContent = '안녕하세요, 바티 님';
+  greeting.textContent = `안녕하세요, ${user.nickname || user.name || '바티'} 님`;
   subline.textContent = user.email || user.phone || 'FC ANYANG · PURPLE MEMBER';
   const joined = new Date(user.joinedAt || Date.now());
   const today = new Date();
@@ -1417,7 +1466,45 @@ function completeDemoLogin(account, notice = '로그인했어요.') {
 document.getElementById('myProfileButton').addEventListener('click', () => {
   if (!readAuthUser()) { showAuthScreen(); return; }
   renderMyProfile();
-  openMyView('preferences');
+  renderAccountDetails();
+  openMyView('account');
+});
+function renderAccountDetails() {
+  const user = readAuthUser();
+  if (!user) return;
+  const id = user.email ? user.email.split('@')[0] : (user.phone || user.provider || 'fcanyang').replace(/\D/g, '').slice(-8) || 'FCANYANG';
+  const membership = readMembershipRegistration();
+  document.getElementById('accountMemberLevel').textContent = membership ? (MEMBERSHIP_LEVELS[membership.type]?.name || '멤버십 회원') : '일반회원';
+  document.getElementById('accountMemberId').textContent = id;
+  document.getElementById('accountName').value = user.name || '';
+  document.getElementById('accountGender').value = user.profile?.gender || '';
+  document.getElementById('accountBirthDate').value = user.profile?.birthDate || '';
+  document.getElementById('accountNickname').value = user.nickname || user.profile?.nickname || '';
+  document.getElementById('accountPhone').value = user.phone || '';
+  document.getElementById('accountEmail').value = user.email || '';
+  document.getElementById('accountVerification').textContent = user.phone ? '휴대전화 등록 · 본인인증은 실제 연동 전' : '시연 계정 · 인증 연동 전';
+  const consent = user.marketingConsent || {};
+  ['app', 'kakao', 'sms'].forEach((channel) => {
+    const value = consent[channel] === 'agree' ? 'agree' : 'decline';
+    const input = document.querySelector(`input[name="consent-${channel}"][value="${value}"]`);
+    if (input) input.checked = true;
+  });
+}
+document.getElementById('accountDetailsForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!event.currentTarget.reportValidity()) return;
+  const user = readAuthUser();
+  if (!user) { showAuthScreen(); return; }
+  user.name = document.getElementById('accountName').value.trim();
+  user.nickname = document.getElementById('accountNickname').value.trim();
+  user.phone = document.getElementById('accountPhone').value.trim();
+  user.email = document.getElementById('accountEmail').value.trim().toLowerCase();
+  user.profile = { ...(user.profile || {}), gender: document.getElementById('accountGender').value, birthDate: document.getElementById('accountBirthDate').value, nickname: user.nickname };
+  user.marketingConsent = Object.fromEntries(['app', 'kakao', 'sms'].map((channel) => [channel, document.querySelector(`input[name="consent-${channel}"]:checked`)?.value || 'decline']));
+  localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
+  renderAccountDetails();
+  renderMyProfile();
+  showMessage('회원 정보와 수신 설정을 저장했어요.');
 });
 document.getElementById('fanPreferencesForm').addEventListener('submit', (event) => {
   event.preventDefault();
