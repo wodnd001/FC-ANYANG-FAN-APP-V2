@@ -308,6 +308,10 @@
 .account-profile{margin:14px 0 18px;border-top:1px solid #573c72;border-bottom:1px solid #573c72}
 .account-profile-row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;align-items:center;padding:12px 10px;border-bottom:1px solid #49335f}
 .account-profile-row:last-child{border-bottom:0}
+.account-address-fields{display:grid;gap:8px;min-width:0}
+.account-address-fields>input,.account-postcode-line>input{width:100%;min-width:0;min-height:42px;padding:0 10px;border:1px solid #59456b;border-radius:9px;background:#241b2e;color:#fff;font:500 12px 'Noto Sans KR',sans-serif}
+.account-postcode-line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px}
+.account-postcode-line button{padding:0 10px;border:1px solid #cda55f;border-radius:9px;background:#39205a;color:#f0d69e;font:700 11px 'Noto Sans KR',sans-serif;white-space:nowrap}
 .account-profile-row>strong{color:#f0e9f5;font-size:11px}
 .account-profile-row>span{color:#d0c2dc;font-size:12px;overflow-wrap:anywhere}
 .account-profile-row input,.account-profile-row select{width:100%;min-width:0;min-height:42px;padding:0 10px;border:1px solid #59456b;border-radius:9px;background:#241b2e;color:#fff;font:500 12px 'Noto Sans KR',sans-serif}
@@ -508,6 +512,7 @@
             <label class="account-profile-row"><strong for="accountNickname">닉네임</strong><input id="accountNickname" name="nickname" autocomplete="nickname" maxlength="24" placeholder="닉네임을 입력하세요"></label>
             <label class="account-profile-row"><strong for="accountPhone">휴대전화</strong><input id="accountPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="010-0000-0000"></label>
             <label class="account-profile-row"><strong for="accountEmail">이메일</strong><input id="accountEmail" name="email" type="email" autocomplete="email" placeholder="email@example.com"></label>
+            <div class="account-profile-row account-address-row"><strong>주소</strong><div class="account-address-fields"><div class="account-postcode-line"><input id="accountPostcode" name="postcode" inputmode="numeric" autocomplete="postal-code" maxlength="8" placeholder="우편번호"><button type="button" id="accountAddressSearch">주소 검색</button></div><input id="accountRoadAddress" name="roadAddress" autocomplete="address-line1" placeholder="도로명 주소"><input id="accountJibunAddress" name="jibunAddress" placeholder="지번 주소"><input id="accountAddressDetail" name="addressDetail" autocomplete="address-line2" placeholder="상세 주소"></div></div>
           </div>
           <h3 class="account-section-title">마케팅 수신 동의</h3>
           <p class="account-consent-note">FC 안양의 이벤트와 혜택 안내를 받을 방법을 선택해 주세요. 각 매체별 설정은 언제든 변경할 수 있습니다.</p>
@@ -1482,6 +1487,11 @@ function renderAccountDetails() {
   document.getElementById('accountNickname').value = user.nickname || user.profile?.nickname || '';
   document.getElementById('accountPhone').value = user.phone || '';
   document.getElementById('accountEmail').value = user.email || '';
+  const address = user.address || {};
+  document.getElementById('accountPostcode').value = address.postcode || '';
+  document.getElementById('accountRoadAddress').value = address.road || '';
+  document.getElementById('accountJibunAddress').value = address.jibun || '';
+  document.getElementById('accountAddressDetail').value = address.detail || '';
   document.getElementById('accountVerification').textContent = user.phone ? '휴대전화 등록 · 본인인증은 실제 연동 전' : '시연 계정 · 인증 연동 전';
   const consent = user.marketingConsent || {};
   ['app', 'kakao', 'sms'].forEach((channel) => {
@@ -1499,12 +1509,22 @@ document.getElementById('accountDetailsForm').addEventListener('submit', (event)
   user.nickname = document.getElementById('accountNickname').value.trim();
   user.phone = document.getElementById('accountPhone').value.trim();
   user.email = document.getElementById('accountEmail').value.trim().toLowerCase();
+  user.address = {
+    postcode: document.getElementById('accountPostcode').value.trim(),
+    road: document.getElementById('accountRoadAddress').value.trim(),
+    jibun: document.getElementById('accountJibunAddress').value.trim(),
+    detail: document.getElementById('accountAddressDetail').value.trim()
+  };
   user.profile = { ...(user.profile || {}), gender: document.getElementById('accountGender').value, birthDate: document.getElementById('accountBirthDate').value, nickname: user.nickname };
   user.marketingConsent = Object.fromEntries(['app', 'kakao', 'sms'].map((channel) => [channel, document.querySelector(`input[name="consent-${channel}"]:checked`)?.value || 'decline']));
   localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
   renderAccountDetails();
   renderMyProfile();
   showMessage('회원 정보와 수신 설정을 저장했어요.');
+});
+document.getElementById('accountAddressSearch').addEventListener('click', () => {
+  document.getElementById('accountPostcode').focus();
+  showMessage('주소 검색 서비스는 아직 연결되지 않았어요. 주소를 직접 입력해 주세요.');
 });
 document.getElementById('fanPreferencesForm').addEventListener('submit', (event) => {
   event.preventDefault();
