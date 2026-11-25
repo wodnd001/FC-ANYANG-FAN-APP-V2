@@ -337,6 +337,11 @@ html,body,button,input,select,textarea{font-family:'Vitro Inspire','Noto Sans KR
 </style>
 <style>
 .app-shell p,.auth-screen p,.home-tool-dialog p{line-height:1.65;letter-spacing:0}
+.ticketbook-hub{margin:12px 0;padding:15px;border:1px solid #5a3d75;border-radius:16px;background:linear-gradient(145deg,#2b1645,#211037);color:#fff}
+.ticketbook-hub-heading .eyebrow{color:#e3c276;font-size:9px;letter-spacing:1px}.ticketbook-hub-heading h3{margin:7px 0;color:#f7f0fc;font-size:17px}.ticketbook-hub-heading p{margin:0;color:#d5c6e1;font-size:11px;line-height:1.65}
+.ticket-return-type-guide{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0}.ticket-return-type-guide span{padding:9px 5px;border:1px solid #594072;border-radius:10px;background:#321a50;color:#eee4f5;text-align:center;font-size:11px}.ticket-return-type-guide b{display:inline-grid;width:20px;height:20px;margin-right:4px;place-items:center;border-radius:50%;background:#cda55f;color:#26113c}
+.ticket-return-scan-button,.ticket-return-submit{width:100%;min-height:46px;border:0;border-radius:11px;background:#cda55f;color:#26113c;font:700 13px 'Vitro Inspire','Noto Sans KR',sans-serif}.ticket-return-scanner{margin:10px 0;padding:11px;border:1px solid #5c4074;border-radius:13px;background:#16092a;text-align:center}.ticket-return-scanner video{display:block;width:100%;max-height:235px;border-radius:9px;background:#10071d;object-fit:cover}.ticket-return-scanner p{margin:8px 0;color:#e9def2;font-size:10px}.ticket-return-scanner button{padding:8px 13px;border:1px solid #80629b;border-radius:9px;background:#32135a;color:#fff;font:11px 'Vitro Inspire','Noto Sans KR',sans-serif}
+.ticket-return-serial-form{display:grid;gap:7px;margin-top:15px}.ticket-return-serial-form label,.ticket-return-reward-label{color:#e3c276;font-size:10px;font-weight:700}.ticket-return-serial-form>div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px}.ticket-return-serial-form input,.ticket-return-reward{min-width:0;min-height:43px;padding:0 11px;border:1px solid #62477c;border-radius:9px;background:#190b2d;color:#fff;font:13px 'Vitro Inspire','Noto Sans KR',sans-serif;letter-spacing:1px}.ticket-return-serial-form input::placeholder{color:#a997b7;letter-spacing:0}.ticket-return-serial-form button{padding:0 12px;border:1px solid #cda55f;border-radius:9px;background:#cda55f;color:#24123d;font:700 11px 'Vitro Inspire','Noto Sans KR',sans-serif}.ticket-return-status{min-height:32px;margin:8px 1px 0;color:#cbb9da;font-size:9px;line-height:1.6}.ticket-return-queue-head{display:flex;align-items:center;justify-content:space-between;margin-top:9px}.ticket-return-queue-head h4{margin:0;color:#fff;font-size:13px}.ticket-return-queue-head span{color:#e3c276;font-size:10px}.ticket-return-queue{display:grid;gap:6px;margin-top:8px}.ticket-return-serial-row{display:flex;align-items:center;justify-content:space-between;padding:9px 11px;border:1px solid #594072;border-radius:9px;background:#321a50}.ticket-return-serial-row>span{display:flex;align-items:baseline;gap:10px}.ticket-return-serial-row b{color:#fff;font:700 12px 'DM Sans','Vitro Inspire',sans-serif;letter-spacing:1px}.ticket-return-serial-row small{color:#cfbcdf;font-size:9px}.ticket-return-serial-row button{width:27px;height:27px;border:1px solid #755b91;border-radius:50%;background:#24113a;color:#eee;font-size:18px}.ticket-return-reward-label{display:block;margin:14px 0 6px}.ticket-return-reward{width:100%;letter-spacing:0}.ticket-return-submit{margin-top:12px}.ticket-return-submit:disabled{opacity:.48}.ticketbook-subheading{margin:18px 0 8px;color:#e4cb8c;font-size:12px}.ticketbook-voucher{display:grid;gap:5px;margin-top:8px;padding:12px;border:1px solid #b18b4e;border-radius:11px;background:#382a42}.ticketbook-voucher b{color:#f0d28e;font-size:11px}.ticketbook-voucher span,.ticketbook-voucher small{color:#cbbbd9;font-size:9px;line-height:1.5}.ticketbook-demo-note{margin:12px 0 0;color:#ad9cbd;font-size:9px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -503,7 +508,7 @@ html,body,button,input,select,textarea{font-family:'Vitro Inspire','Noto Sans KR
         <div class="my-checkin-page" data-my-page="event" hidden><article class="my-event-card"><span>FC ANYANG · MATCHDAY</span><h3>직관 인증 EVENT</h3><p>FC 안양 경기일에 직관 인증을 남기고<br>나만의 매치 캘린더를 완성해보세요.</p><strong>선착순 50~100명에게 MD 상품·커피 기프티콘 등을 제공해요.</strong><small>경기별 진행 여부와 혜택은 구단 공지를 확인해 주세요.</small></article><button class="my-checkin-primary" data-my-tab-jump="verify">직관 인증하러 가기</button></div>
       </section>
       <section class="my-detail-view" data-my-view="tickets" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>티켓 예매 내역</h2><span></span></div><p class="my-detail-empty" id="myBookingsEmpty">이 기기에서 저장한 예매 내역이 없습니다.</p><div class="my-bookings-list" id="myBookingsList"></div></section>
-      <section class="my-detail-view ticket-return-page" data-my-view="ticket-return" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>미사용 티켓 반환</h2><span></span></div><p class="ticket-return-intro">사용하지 않은 티켓북 예매권을 반환하고 구단 바우처로 교환할 수 있어요. 반환을 완료한 예매권은 다시 사용할 수 없습니다.</p><div id="ticketBookHub" class="ticketbook-hub"></div></section>
+      <section class="my-detail-view ticket-return-page" data-my-view="ticket-return" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>미사용 티켓 반환</h2><span></span></div><div id="ticketBookHub" class="ticketbook-hub"></div></section>
       <section class="my-detail-view" data-my-view="membership" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>모바일 멤버십 등록</h2><span></span></div><div class="membership-register-panel"><span class="eyebrow">FC ANYANG MEMBERSHIP</span><h3>시즌권 멤버십 등록</h3><p>보유한 시즌권 종류를 선택한 뒤 카드 뒷면 바코드를 스캔하거나 바코드 아래 13자리 번호를 입력해 주세요.</p><fieldset class="membership-type-grid"><legend>멤버십 등급 선택</legend><label><input type="radio" name="membershipType" value="sukabati"><span><b>SUKABATI</b><small>지정좌석제 연간회원권</small></span></label><label><input type="radio" name="membershipType" value="violet"><span><b>VIOLET</b><small>카드형 연간회원권</small></span></label><label><input type="radio" name="membershipType" value="felico"><span><b>FELICO</b><small>5매형 티켓북</small></span></label><label><input type="radio" name="membershipType" value="paradizo"><span><b>PARADIZO</b><small>20매형 티켓북</small></span></label><label><input type="radio" name="membershipType" value="civitano"><span><b>CIVITANO</b><small>10매형 티켓북</small></span></label></fieldset><button type="button" class="membership-scan-button" id="startMembershipScan">▦ 시즌권 후면 바코드 스캔</button><div class="membership-scanner" id="membershipScanner" hidden><video id="membershipScanVideo" playsinline muted aria-label="시즌권 바코드 스캔"></video><p id="membershipScanStatus">카드를 화면 안에 맞춰주세요.</p><button type="button" id="stopMembershipScan" class="my-stop-scan">스캔 닫기</button></div><form id="membershipForm" class="membership-code-form"><label id="membershipSeatField" class="membership-seat-field" hidden>지정 좌석 정보 (선택)<input id="membershipSeatInput" name="seatInfo" maxlength="40" placeholder="예: W석 R15구역 12열 3번"></label><label for="membershipBarcodeInput">바코드 하단 13자리 번호</label><input id="membershipBarcodeInput" name="barcode" inputmode="numeric" autocomplete="off" maxlength="13" pattern="[0-9]{13}" placeholder="숫자 13자리를 입력하세요" required><small id="membershipCodeStatus">등록 정보는 이 기기에 저장되는 시연용입니다.</small><button type="submit" class="my-checkin-primary">멤버십 등록하기</button></form><div class="membership-registered" id="membershipRegistered" hidden></div></div></section>
       <section class="my-detail-view" data-my-view="survey" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>설문 및 이벤트</h2><span></span></div><p class="my-detail-empty">진행 중인 설문 및 이벤트가 없습니다.</p></section>
       <section class="my-detail-view" data-my-view="preferences" hidden><div class="my-detail-head"><button data-my-back aria-label="MY로 돌아가기">‹</button><h2>팬 프로필 설정</h2><span></span></div><div class="profile-preferences"><p>나에게 맞는 안양 소식을 준비할게요.</p><form id="fanPreferencesForm"><label>성별<select id="fanGender" required><option value="">선택해 주세요</option><option value="female">여성</option><option value="male">남성</option><option value="other">선택 안 함</option></select></label><label>나이대<select id="fanAgeBand" required><option value="">선택해 주세요</option><option>10대</option><option>20대</option><option>30대</option><option>40대</option><option>50대 이상</option><option>선택 안 함</option></select></label><label>좋아하는 선수<select id="fanFavoritePlayer" required><option value="">선택해 주세요</option><option>마테우스</option><option>아일톤</option><option>엘쿠라노</option><option>유키치</option><option>김정현</option><option>한가람</option><option>이창용</option><option>권경원</option><option>최건주</option><option>블레이즈</option><option>아직 정하지 않았어요</option></select></label><small id="fanPreferenceReward">모든 항목을 처음 저장하면 100P를 드려요. 포인트는 계정당 1회 지급됩니다.</small><button type="submit" class="my-checkin-primary" id="saveFanPreferences">설정 저장하기 · 100P 받기</button></form></div></section>
@@ -738,72 +743,118 @@ function showTicketStage(stage) {
 function getTicketBookings() {
   try { return JSON.parse(localStorage.getItem(TICKET_BOOKINGS_KEY) || '[]'); } catch { return []; }
 }
-function readTicketBooks() {
-  try { return JSON.parse(localStorage.getItem(TICKET_BOOKS_KEY) || '[]'); } catch { return []; }
+const TICKET_RETURN_QUEUE_KEY = 'fc-anyang-ticket-return-queue-v1';
+const TICKET_RETURNED_SERIALS_KEY = 'fc-anyang-ticket-returned-serials-v1';
+const ticketBookSerialTypes = {
+  A: { count: 5, name: '5매 티켓북' },
+  B: { count: 10, name: '10매 티켓북' },
+  C: { count: 20, name: '20매 티켓북' }
+};
+function readStoredList(key) {
+  try { const value = JSON.parse(localStorage.getItem(key) || '[]'); return Array.isArray(value) ? value : []; } catch { return []; }
 }
-function saveTicketBooks(books) { localStorage.setItem(TICKET_BOOKS_KEY, JSON.stringify(books)); }
-function randomTicketToken(length = 6) {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let token = '';
-  for (let i = 0; i < length; i += 1) token += chars[Math.floor(Math.random() * chars.length)];
-  return token;
+function parseTicketReturnSerial(rawValue) {
+  const match = String(rawValue || '').toUpperCase().match(/[ABC]\d{5}/);
+  if (!match) return null;
+  const serial = match[0];
+  return { serial, ...ticketBookSerialTypes[serial[0]] };
 }
-const ticketBookProducts = [
-  { type: 'book5', prefix: 'A', count: 5, name: 'FELICO 5매 티켓북', caption: '가볍게 여러 경기를 즐기는 팬을 위한 구성' },
-  { type: 'book10', prefix: 'B', count: 10, name: 'PARADIZO 10매 티켓북', caption: '가족·친구와 나누어 쓰기 좋은 구성' },
-  { type: 'book20', prefix: 'C', count: 20, name: 'CIVITANO 20매 티켓북', caption: '시즌 내 꾸준히 직관하는 팬을 위한 구성' }
-];
+function stopTicketReturnScan() {
+  window.FcCameraScanner?.stop();
+  const scanner = document.getElementById('ticketReturnScanner');
+  if (scanner) scanner.hidden = true;
+}
+function addTicketReturnSerial(rawValue) {
+  const parsed = parseTicketReturnSerial(rawValue);
+  const status = document.getElementById('ticketReturnStatus');
+  if (!parsed) {
+    if (status) status.textContent = '시리얼 코드를 확인하지 못했어요. A/B/C로 시작하는 6자리 코드를 입력해 주세요.';
+    return false;
+  }
+  const returned = new Set(readStoredList(TICKET_RETURNED_SERIALS_KEY));
+  if (returned.has(parsed.serial)) {
+    if (status) status.textContent = `${parsed.serial}은 이미 반환 처리된 예매권입니다.`;
+    return false;
+  }
+  const queue = readStoredList(TICKET_RETURN_QUEUE_KEY);
+  if (queue.some((item) => item.serial === parsed.serial)) {
+    if (status) status.textContent = `${parsed.serial}은 이미 반환 목록에 있어요.`;
+    return false;
+  }
+  queue.push({ serial: parsed.serial, type: parsed.name, count: parsed.count, addedAt: new Date().toISOString() });
+  localStorage.setItem(TICKET_RETURN_QUEUE_KEY, JSON.stringify(queue));
+  if (status) status.textContent = `${parsed.serial} 확인 · ${parsed.name} 예매권을 반환 목록에 추가했어요.`;
+  renderTicketReturnQueue();
+  return true;
+}
+function renderTicketReturnQueue() {
+  const list = document.getElementById('ticketReturnQueue');
+  const submit = document.getElementById('ticketReturnSubmit');
+  const count = document.getElementById('ticketReturnCount');
+  if (!list || !submit || !count) return;
+  const queue = readStoredList(TICKET_RETURN_QUEUE_KEY);
+  list.replaceChildren();
+  queue.forEach((item) => {
+    const row = document.createElement('div'); row.className = 'ticket-return-serial-row';
+    const details = document.createElement('span'); details.innerHTML = '<b></b><small></small>';
+    details.querySelector('b').textContent = item.serial;
+    details.querySelector('small').textContent = item.type;
+    const remove = document.createElement('button'); remove.type = 'button'; remove.setAttribute('aria-label', `${item.serial} 목록에서 삭제`); remove.textContent = '×';
+    remove.addEventListener('click', () => { const next = readStoredList(TICKET_RETURN_QUEUE_KEY).filter((entry) => entry.serial !== item.serial); localStorage.setItem(TICKET_RETURN_QUEUE_KEY, JSON.stringify(next)); renderTicketReturnQueue(); });
+    row.append(details, remove); list.append(row);
+  });
+  count.textContent = `${queue.length}매 선택`;
+  submit.disabled = queue.length === 0;
+}
 function renderTicketBooks() {
   const hub = document.getElementById('ticketBookHub');
   if (!hub) return;
-  const books = readTicketBooks();
-  let html = '<div class="ticketbook-hub-heading"><span class="eyebrow">VIOLET TICKET BOOK</span><h3>티켓북</h3><p>5·10·20매 상품과 남은 예매권을 관리해요.</p></div><div class="ticketbook-products">';
-  for (const product of ticketBookProducts) {
-    html += `<article class="ticketbook-product"><b>${product.name}</b><small>${product.caption}</small><span>상품 가격·결제는 구단 정책 확정 후 연결됩니다.</span><button type="button" data-ticketbook-add="${product.type}">상품 선택 · 시연 등록</button></article>`;
-  }
-  html += '</div><h4 class="ticketbook-subheading">보유 티켓북</h4>';
-  if (!books.length) html += '<p class="ticketbook-empty">등록된 티켓북이 없습니다. 위 상품을 선택해 시연용으로 추가할 수 있어요.</p>';
-  for (const book of books.slice().reverse()) {
-    const product = ticketBookProducts.find((item) => item.type === book.type) || ticketBookProducts[0];
-    const usedCount = (book.usedSerials || []).length;
-    const remain = Math.max(0, Number(book.remaining) || 0);
-    const serialPreview = (book.serials || []).slice(0, 3).map((serial) => `<code>${serial}</code>`).join(' ');
-    html += `<article class="ticketbook-owned"><div class="ticketbook-owned-top"><div><b>${product.name}</b><small>${remain}/${product.count}매 남음 · ${usedCount}매 사용</small></div><strong>${remain}매</strong></div><p>예매권 번호 예시: ${serialPreview || '—'}${book.serials?.length > 3 ? ' …' : ''}</p><small class="ticketbook-group-note">같은 묶음 여부는 내부 티켓북 ID로 관리합니다.</small><div class="ticketbook-return-controls"><select aria-label="반환 보상 선택" data-ticketbook-reward="${book.id}" ${remain ? '' : 'disabled'}><option value="md">구단 MD 바우처</option><option value="next">다음 시즌 예매 할인 바우처</option></select><button type="button" data-ticketbook-return="${book.id}" ${remain ? '' : 'disabled'}>남은 ${remain}매 반환</button></div></article>`;
-  }
-  let vouchers = [];
-  try { vouchers = JSON.parse(localStorage.getItem(TICKET_VOUCHERS_KEY) || '[]'); } catch { vouchers = []; }
+  let vouchers = readStoredList(TICKET_VOUCHERS_KEY);
+  let html = '<div class="ticketbook-hub-heading"><span class="eyebrow">FC ANYANG · TICKET RETURN</span><h3>미사용 예매권 확인</h3><p>반환할 예매권을 한 장씩 스캔하거나 바코드 아래 시리얼 코드를 입력해 주세요.</p></div><div class="ticket-return-type-guide"><span><b>A</b> 5매</span><span><b>B</b> 10매</span><span><b>C</b> 20매</span></div><button type="button" class="ticket-return-scan-button" id="ticketReturnScanStart">▦ 바코드 또는 QR 스캔</button><div class="ticket-return-scanner" id="ticketReturnScanner" hidden><video id="ticketReturnVideo" playsinline muted aria-label="티켓북 바코드 또는 QR 스캔"></video><p id="ticketReturnScanStatus">카메라에 코드를 비춰주세요.</p><button type="button" id="ticketReturnScanStop">스캔 닫기</button></div><form class="ticket-return-serial-form" id="ticketReturnSerialForm"><label for="ticketReturnSerialInput">바코드 하단 시리얼 코드</label><div><input id="ticketReturnSerialInput" name="serial" autocomplete="off" autocapitalize="characters" maxlength="6" pattern="[AaBbCc][0-9]{5}" placeholder="예: A12345" required><button type="submit">코드 확인</button></div></form><p class="ticket-return-status" id="ticketReturnStatus" aria-live="polite">코드 첫 글자로 5·10·20매 티켓북을 자동 구분합니다.</p><div class="ticket-return-queue-head"><h4>반환 대상</h4><span id="ticketReturnCount">0매 선택</span></div><div class="ticket-return-queue" id="ticketReturnQueue"></div><label class="ticket-return-reward-label" for="ticketReturnReward">반환 보상</label><select class="ticket-return-reward" id="ticketReturnReward"><option value="md">구단 MD 바우처</option><option value="next">다음 시즌 예매 할인 바우처</option></select><button type="button" class="ticket-return-submit" id="ticketReturnSubmit" disabled>선택한 예매권 반환 요청</button><p class="ticketbook-demo-note">시리얼 형식으로 티켓북 종류를 구분하는 화면입니다. 실제 소유 확인·반환 확정·바우처 발급은 구단 티켓 시스템 연동이 필요합니다.</p>';
   if (vouchers.length) {
     html += '<h4 class="ticketbook-subheading">반환 보상 바우처</h4>';
     for (const voucher of vouchers.slice().reverse()) html += `<article class="ticketbook-voucher"><b>${voucher.reward === 'md' ? 'FC 안양 MD 바우처' : '다음 시즌 예매 할인 바우처'}</b><span>${voucher.count}매 반환 완료 · ${new Date(voucher.createdAt).toLocaleDateString('ko-KR')}</span><small>사용 조건과 할인 금액은 구단 정책 확정 후 적용됩니다.</small></article>`;
   }
-  html += '<p class="ticketbook-demo-note">시연용 기능입니다. 실제 티켓 유효성·결제·환불·바우처 발급은 구단 시스템 연동과 정책 확정이 필요합니다.</p>';
   hub.innerHTML = html;
-  hub.querySelectorAll('[data-ticketbook-add]').forEach((button) => button.addEventListener('click', () => {
-    const product = ticketBookProducts.find((item) => item.type === button.dataset.ticketbookAdd);
-    if (!product) return;
-    const id = `book-${Date.now()}-${randomTicketToken(5)}`;
-    const serials = Array.from({ length: product.count }, () => `${product.prefix}${randomTicketToken(8)}`);
-    books.push({ id, type: product.type, count: product.count, remaining: product.count, serials, usedSerials: [], createdAt: new Date().toISOString(), status: 'active' });
-    saveTicketBooks(books); renderTicketBooks(); showMessage(`${product.name}을 시연용으로 추가했어요.`);
-  }));
-  hub.querySelectorAll('[data-ticketbook-return]').forEach((button) => button.addEventListener('click', () => {
-    const book = books.find((item) => item.id === button.dataset.ticketbookReturn);
-    if (!book || !book.remaining) return;
-    const reward = hub.querySelector(`[data-ticketbook-reward="${book.id}"]`)?.value || 'md';
-    const returned = book.remaining;
-    if (!window.confirm(`미사용 예매권 ${returned}매를 구단에 반환하고 선택한 바우처를 받으시겠어요? 반환한 예매권은 다시 사용할 수 없습니다.`)) return;
-    const used = new Set(book.usedSerials || []);
-    book.returnedSerials = (book.serials || []).filter((serial) => !used.has(serial));
-    book.returnedCount = (book.returnedCount || 0) + returned;
-    book.remaining = 0;
-    book.status = 'returned';
-    saveTicketBooks(books);
-    let currentVouchers = [];
-    try { currentVouchers = JSON.parse(localStorage.getItem(TICKET_VOUCHERS_KEY) || '[]'); } catch { currentVouchers = []; }
-    currentVouchers.push({ id: `voucher-${Date.now()}`, bookId: book.id, reward, count: returned, createdAt: new Date().toISOString(), status: 'demo' });
+  const form = document.getElementById('ticketReturnSerialForm');
+  const input = document.getElementById('ticketReturnSerialInput');
+  const scanner = document.getElementById('ticketReturnScanner');
+  const video = document.getElementById('ticketReturnVideo');
+  const scanStatus = document.getElementById('ticketReturnScanStatus');
+  document.getElementById('ticketReturnScanStart').addEventListener('click', async () => {
+    scanner.hidden = false;
+    scanStatus.textContent = '카메라를 준비하고 있어요.';
+    try {
+      await window.FcCameraScanner.start(video, ['qr_code','code_128','code_39','ean_13','ean_8'], (raw) => {
+        const parsed = parseTicketReturnSerial(raw);
+        if (parsed) { input.value = parsed.serial; addTicketReturnSerial(parsed.serial); scanStatus.textContent = `${parsed.serial} · ${parsed.name} 확인 완료`; }
+        else {
+          scanStatus.textContent = '코드 형식이 맞지 않아요. 바코드 아래 시리얼 코드를 직접 입력해 주세요.';
+          const status = document.getElementById('ticketReturnStatus');
+          if (status) status.textContent = '스캔 결과에서 시리얼 코드를 찾지 못했어요. 바코드 아래 코드를 직접 입력해 주세요.';
+        }
+        stopTicketReturnScan();
+      }, (message) => { scanStatus.textContent = message; });
+      scanStatus.textContent = '바코드 또는 QR을 카메라 안에 맞춰주세요.';
+    } catch (error) { scanStatus.textContent = error.message || '카메라를 열 수 없어요. 시리얼 코드를 직접 입력해 주세요.'; }
+  });
+  document.getElementById('ticketReturnScanStop').addEventListener('click', stopTicketReturnScan);
+  form.addEventListener('submit', (event) => { event.preventDefault(); if (addTicketReturnSerial(input.value)) input.value = ''; });
+  document.getElementById('ticketReturnSubmit').addEventListener('click', () => {
+    const items = readStoredList(TICKET_RETURN_QUEUE_KEY);
+    if (!items.length) return;
+    if (!window.confirm(`미사용 예매권 ${items.length}매의 반환 요청을 진행할까요?`)) return;
+    const returnedSerials = new Set(readStoredList(TICKET_RETURNED_SERIALS_KEY));
+    items.forEach((item) => returnedSerials.add(item.serial));
+    localStorage.setItem(TICKET_RETURNED_SERIALS_KEY, JSON.stringify([...returnedSerials]));
+    const currentVouchers = readStoredList(TICKET_VOUCHERS_KEY);
+    currentVouchers.push({ id: `voucher-${Date.now()}`, reward: document.getElementById('ticketReturnReward').value, count: items.length, serials: items.map((item) => item.serial), createdAt: new Date().toISOString(), status: 'demo' });
     localStorage.setItem(TICKET_VOUCHERS_KEY, JSON.stringify(currentVouchers));
-    renderTicketBooks(); showMessage(`${returned}매 반환을 기록했어요. 바우처는 시연용으로 발급됐습니다.`);
-  }));
+    localStorage.setItem(TICKET_RETURN_QUEUE_KEY, '[]');
+    renderTicketBooks();
+    showMessage(`${items.length}매 반환 요청을 시연용으로 기록했어요.`);
+  });
+  renderTicketReturnQueue();
 }
 function renderTicketSeatOptions() {
   const list = document.getElementById('ticketSeatOptionList');
@@ -1680,7 +1731,7 @@ document.querySelectorAll('[data-my-open]').forEach((button) => button.addEventL
   if (viewName === 'tickets') renderMyBookings();
   if (viewName === 'ticket-return') renderTicketBooks();
 }));
-document.querySelectorAll('[data-my-back]').forEach((button) => button.addEventListener('click', () => openMyView('home')));
+document.querySelectorAll('[data-my-back]').forEach((button) => button.addEventListener('click', () => { stopTicketReturnScan(); openMyView('home'); }));
 document.querySelectorAll('[data-my-tab]').forEach((button) => button.addEventListener('click', () => {
   selectMyCheckinTab(button.dataset.myTab);
   if (button.dataset.myTab === 'history') renderMyRecords();
