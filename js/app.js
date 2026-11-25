@@ -1,5 +1,5 @@
 const splashScreen = document.getElementById('splashScreen');
-window.setTimeout(() => { if (splashScreen) splashScreen.remove(); }, 1000);
+window.setTimeout(() => { if (splashScreen) splashScreen.remove(); }, 3500);
 const messages = {
   ticket: '티켓 메뉴에서 11월 28일 홈 경기 예매 과정을 목업으로 확인할 수 있어요.',
   shop: 'MD SHOP 화면은 다음 버전에서 연결할 예정입니다.',
